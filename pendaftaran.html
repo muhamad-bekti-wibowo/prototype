@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absensi Mikrokontroler</title>
+  <link rel="shortcut icon" href="/favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body
+  style="display: flex; justify-content: center;align-items: center; height: 98vh; background-color: rgb(255, 255, 255);">
+  <div class="formakses">
+    <div style="width: 400px; text-align: center; ">
+      <form action="#" method="POST" style="display: block;">
+        <div class="form-group">
+          <label for="nama">Nama Lengkap:</label>
+          <input type="text" class="form-control" id="nama" name="nama" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="alamat">Alamat:</label>
+          <textarea class="form-control" id="alamat" name="alamat" rows="3" required></textarea>
+        </div>
+
+      </form>
+      <button type="submit" class="btn btn-primary">Kirim Pendaftaran</button>
+    </div>
+  </div>
+</body>
+<script>
+
+  $(document).ready(function () {
+    $("button").click(function () {
+      var namaInput = document.getElementById('nama');
+      var nama = namaInput.value;
+      var emailInput = document.getElementById('email');
+      var email = emailInput.value
+      var alamatInput = document.getElementById('alamat');
+      var alamat = alamatInput.value;
+      $.post("https://script.google.com/macros/s/AKfycbz43UuDpgHc--3Jita355Cs8jQaYx53JgPkFwO-Y5_yI3fEtCT5JD8m0A8GnDWJmKWTRw/exec",
+        {
+          nama: nama,
+          email: email,
+          alamat: alamat
+        },
+        function (data, status) {
+          const parse = data.split(",");
+          $(".formakses").text("");
+          $(".antrian").css("display", "block");
+          $(".nomor").text(parse[2]);
+          $(".tanggal").text(parse[0]);
+          $(".jam").text(parse[1]);
+          $(".nama").text(parse[3]);
+          $(".email").text(parse[4]);
+          $(".alamat").text(parse[5]);
+        });
+    });
+  });
+</script>
+<div class="antrian" style="display: none;">
+  <div style="width: 400px; text-align: center; font-size: 30px; ">
+    <div></div>
+    <div class="nama"></div>
+    <div class="email"></div>
+    <div class="alamat"></div>
+    <div style="font-size: 30px;" >Nomor antrian online</div>
+    <div style="font-size: 70px;" class="nomor">1</div>
+    <div class="tanggal"></div>
+    <div class="jam"></div>
+  </div>
+</div>
+
+</html>
