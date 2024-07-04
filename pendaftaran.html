@@ -34,6 +34,37 @@
     </div>
   </div>
 </body>
+<audio id="1" controls style="display: none;">
+  <source src="https://muhamad-bekti-wibowo.github.io/prototype/0001.mp3" type="audio/mpeg">
+</audio>
+<audio id="2" controls style="display: none;">
+  <source src="https://muhamad-bekti-wibowo.github.io/prototype/0002.mp3" type="audio/mpeg">
+</audio>
+<audio id="3" controls style="display: none;">
+  <source src="https://muhamad-bekti-wibowo.github.io/prototype/0003.mp3" type="audio/mpeg">
+</audio>
+<audio id="4" controls style="display: none;">
+  <source src="https://muhamad-bekti-wibowo.github.io/prototype/0004.mp3" type="audio/mpeg">
+</audio>
+<audio id="5" controls style="display: none;">
+  <source src="https://muhamad-bekti-wibowo.github.io/prototype/0005.mp3" type="audio/mpeg">
+</audio>
+<audio id="6" controls style="display: none;">
+  <source src="https://muhamad-bekti-wibowo.github.io/prototype/0006.mp3" type="audio/mpeg">
+</audio>
+<audio id="7" controls style="display: none;">
+  <source src="https://muhamad-bekti-wibowo.github.io/prototype/0007.mp3" type="audio/mpeg">
+</audio>
+<audio id="8" controls style="display: none;">
+  <source src="https://muhamad-bekti-wibowo.github.io/prototype/0008.mp3" type="audio/mpeg">
+</audio>
+<audio id="9" controls style="display: none;">
+  <source src="https://muhamad-bekti-wibowo.github.io/prototype/0009.mp3" type="audio/mpeg">
+</audio>
+<audio id="10" controls style="display: none;">
+  <source src="https://muhamad-bekti-wibowo.github.io/prototype/0010.mp3" type="audio/mpeg">
+</audio>
+
 <script>
 
   $(document).ready(function () {
@@ -56,6 +87,8 @@
           $(".antrian").css("display", "block");
           $(".nomor").text(parse[2]);
           $(".tanggal").text(parse[0]);
+          var audio = document.getElementById(parse[2]);
+        audio.play()
           $(".jam").text(parse[1]);
           $(".nama").text(parse[3]);
           $(".email").text(parse[4]);
