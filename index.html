@@ -37,12 +37,22 @@
     <div class="body">
         <table>
             <tr>
-                <th class="name">Offline</th>
-                <th class="name">Online</th>
+                <th class="name">Total Antrian Offline</th>
+                <th class="name">Total Antrian Online</th>
             </tr>
             <tr>
-                <td class="name"> <span class="R"></span></td>
-                <td class="name"> <span class="N"></span></td>
+                <td class="name"> <span class="TF"></span></td>
+                <td class="name"> <span class="TN"></span></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th class="name">Nomor Antrian Offline Sekarang</th>
+                <th class="name">Nomor Antrian Online Sekarang</th>
+            </tr>
+            <tr>
+                <td class="name"> <span class="NF"></span></td>
+                <td class="name"> <span class="NN"></span></td>
             </tr>
         </table>
     </div>
@@ -51,8 +61,10 @@
         let link ="https://script.google.com/macros/s/AKfycbwtpqxHBn_WetXjjVIrYQpWZNr9K9RB1kB0KPCfCOL_uvqbBeYMggj4VFVyR595InSSEA/exec?read";
          $.get(link, function(data, status){
             const myArray = data.split(",");
-            $(".R").text(myArray[0]);
-            $(".N").text(myArray[1]);
+            $(".TF").text(myArray[0]);
+            $(".TN").text(myArray[1]);
+            $(".NF").text(myArray[2]);
+            $(".NN").text(myArray[3]);
   });
     </script>
 </body>
